@@ -3,11 +3,24 @@ angular.module('starter.controllers', ['firebase'])
 
     $scope.login = {};
 
+    var firebaseObj = new Firebase('https://burning-fire-1723.firebaseio.com/');
+    var loginObj = $firebaseAuth(firebaseObj);
+
     $scope.signin = function () {
       var username = $scope.login.username;
       var password = $scope.login.password;
 
-      console.log(username, password)
-    }
+      loginObj.$authWithPassword({
+        email: username,
+        password: password
+      })
+        .then(function (user) {
+          // Success callback
+          console.log('Auth successful', user);
+        }, function (error) {
+          // Failure callback
+          console.log('Auth failure', error);
+        })
+    };
 
   }]);
