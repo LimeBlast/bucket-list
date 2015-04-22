@@ -2,14 +2,14 @@
   <ion-content>
     <div class="list list-inset">
       <label class="item item-input">
-        <input type="text" placeholder="Username"/>
+        <input type="text" placeholder="Username" ng-model="login.username"/>
       </label>
       <label for="" class="item item-input">
-        <input type="password" placeholder="Password"/>
+        <input type="password" placeholder="Password" ng-model="login.password"/>
       </label>
     </div>
     <div class="padding">
-      <button class="button button-block button-assertive">
+      <button ng-click="signin()" class="button button-block button-assertive">
         Sign In
       </button>
     </div>
