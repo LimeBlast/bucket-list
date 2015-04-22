@@ -25,6 +25,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: 'templates/home.html',
         controller: 'HomeCtrl'
       })
+      .state('userHome', {
+        url: '.userHome',
+        templateUrl: 'templates/userHome.html',
+        controller: 'UserHomeCtrl'
+      });
 
     $urlRouterProvider.otherwise('/home');
   });

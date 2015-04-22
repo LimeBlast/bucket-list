@@ -1,5 +1,5 @@
 angular.module('starter.controllers', ['firebase'])
-  .controller('HomeCtrl', ['$scope', '$firebaseAuth', function ($scope, $firebaseAuth) {
+  .controller('HomeCtrl', ['$scope', '$firebaseAuth', '$state', function ($scope, $firebaseAuth, $state) {
 
     $scope.login = {};
 
@@ -17,10 +17,14 @@ angular.module('starter.controllers', ['firebase'])
         .then(function (user) {
           // Success callback
           console.log('Auth successful', user);
+          $state.go('userHome');
         }, function (error) {
           // Failure callback
           console.log('Auth failure', error);
         })
     };
+
+  }])
+  .controller('UserHomeCtrl', ['$scope', function ($scope) {
 
   }]);
